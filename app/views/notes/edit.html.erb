@@ -1,10 +1,15 @@
-<h1>Edit Note</h1>
+<div id="main-container" class="container-fluid">
+  <div class="row">
+    <div id="content" class="col-xs-12">
 
-<div>
-  <%= form_for :note, url: note_path(@note), method: :patch do |f| %>
-    <%= f.text_field :title %>
-    <%= f.text_area :text, size: '60x12' %>
-    <%= f.collection_select :notepad_id, Notepad.all, :id, :title, prompt: true %>
-    <%= f.submit "Create" %>
-  <% end %>
+      <h1>Edit Note</h1>
+        <%= form_for :note, url: note_path(@note), method: :patch do |f| %>
+          <%= f.text_field :title %>
+          <%= f.text_area :text, size: '60x12' %>
+          <%= f.collection_select :notepad_id, Notepad.all, :id, :title, prompt: true %>
+          <%= f.submit "Create" %>
+        <% end %>
+
+    </div>
+  </div>
 </div>

@@ -1,21 +1,23 @@
-<%= @notepad.title %>
+<div id="main-container" class="container-fluid">
+  <div class="row">
+    <div id="content" class="col-xs-12">
+      <%= @notepad.title %>
+    </div>
+    <div id="content" class="col-xs-12">
+      <% @notes.each do |note| %>
+        <h2><%= link_to note.title, note_path(note) %></h2>
+        <p><%= note.text %></p>
+      <% end %>
+    </div>
+    <div id="content" class="col-xs-12">
+      <%= link_to "Edit", edit_notepad_path(@notepad), :class => 'btb btn-info btn-xs' %>
 
-<div>
-  <% @notes.each do |note| %>
-    <h2><%= link_to note.title, note_path(note) %></h2>
-    <p><%= note.text %></p>
-  <% end %>
-</div>
+      <%= link_to "Delete", notepad_path(@notepad),
+                            method: :delete,
+                            data: {confirm: 'Are you sure?'},
+                            :class => 'btb btn-danger btn-xs' %>
 
-<div>
-
-  <%= link_to "Edit", edit_notepad_path(@notepad), :class => 'btb btn-default' %>
-
-  <%= link_to "Delete", notepad_path(@notepad),
-                        method: :delete,
-                        data: {confirm: 'Are you sure?'},
-                        :class => 'btb btn-danger' %>
-
-  <%= link_to "Return", notepads_path(@notepad), :class => 'btb btn-default' %>
-
+      <%= link_to "Return", notepads_path(@notepad), :class => 'btb btn-primary btn-xs' %>
+    </div>
+  </div>
 </div>

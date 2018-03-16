@@ -1,17 +1,24 @@
-<%= @note.title %>
-<%= @note.text %>
+<div id="main-container" class="container-fluid">
+  <div class="row">
+    <div id="content" class="col-xs-12">
+      <%= @note.title %>
+    </div>
+    <div id="content" class="col-xs-12">
+      <%= @note.text %>
+    </div>
+    <div id="content" class="col-xs-12">
+      
+      <%= link_to "Edit", edit_note_path(@note), :class => 'btb btn-info btn-xs' %>
 
-<div>
+      <%= link_to "Delete", note_path(@note),
+                              method: :delete,
+                              data: {confirm: 'Are you sure?'},
+                              :class => 'btb btn-danger btn-xs' %>
 
-  <%= link_to "Edit", edit_note_path(@note), :class => 'btb btn-default' %>
+      <%= link_to "Return", notes_path(@note), :class => 'btb btn-primary btn-xs' %>
 
-  <%= link_to "Delete", note_path(@note),
-                        method: :delete,
-                        data: {confirm: 'Are you sure?'},
-                        :class => 'btb btn-danger' %>
+      <%= link_to "All notes in this Notepad", @note.notepad, :class => 'btb btn-primary btn-xs'%>
 
-  <%= link_to "Return", notes_path(@note), :class => 'btb btn-default' %>
-
-  <%= link_to "All notes in this Notepad", @note.notepad, :class => 'btb btn-default'%>
-
+    </div>
+  </div>
 </div>

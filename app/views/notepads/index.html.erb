@@ -1,9 +1,15 @@
-<h1>My Notepads</h1>
+<div id="main-container" class="container-fluid">
+  <div class="row">
+    <div id="content" class="col-xs-12">
+      <h1>My Notepads</h1>
 
-<h2><%= link_to "Create new notepad", new_notepad_path, :class => 'btb btn-default' %></h2>
+      <h2><%= link_to new_notepad_path, :class => 'btb btn-success' do %></h2>
+              <i class="glyphicon glyphicon-plus"></i> Create new notepad
+            <% end %>
 
-<div>
-  <% @notepad.each do |notepad| %>
-    <h2><%= link_to notepad.title, notepad_path(notepad) %></h2>
-  <% end %>
+        <% @notepad.each do |notepad| %>
+            <h2><%= link_to notepad.title, notepad_path(notepad) %></h2>
+          <% end %>
+    </div>
+  </div>
 </div>

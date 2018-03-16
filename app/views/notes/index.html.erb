@@ -1,10 +1,17 @@
-<h1>My Notes</h1>
 
-<h2><%= link_to "Create new note", new_note_path, :class => 'btb btn-default' %></h2>
+<div id="main-container" class="container-fluid">
+  <div class="row">
+    <div id="content" class="col-xs-12">
+      <h1>My Notes</h1>
 
-<div>
-  <% @note.each do |note| %>
-    <h2><%= link_to note.title, note_path(note) %></h2>
-    <p><%= note.text %></p>
-  <% end %>
+      <h2><%= link_to new_note_path, :class => 'btb btn-success' do %></h2>
+            <i class="glyphicon glyphicon-plus"></i> Create new note
+          <% end %>
+
+      <% @note.each do |note| %>
+        <h2><%= link_to note.title, note_path(note) %></h2>
+        <p><%= note.text %></p>
+      <% end %>
+    </div>
+  </div>
 </div>

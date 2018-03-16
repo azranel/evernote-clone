@@ -1,8 +1,13 @@
-<h1>Edit Notepad</h1>
+<div id="main-container" class="container-fluid">
+  <div class="row">
+    <div id="content" class="col-xs-12">
+      <h1>Edit Notepad</h1>
 
-<div>
-  <%= form_for :notepad, url: notepad_path(@notepad), method: :patch do |f| %>
-    <%= f.text_field :title %>
-    <%= f.submit "Create" %>
-  <% end %>
+        <%= form_for :notepad, url: notepad_path(@notepad), method: :patch do |f| %>
+          <%= f.text_field :title %>
+          <%= f.submit "Create" %>
+        <% end %>
+        
+    </div>
+  </div>
 </div>

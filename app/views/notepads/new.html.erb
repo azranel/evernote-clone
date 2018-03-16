@@ -1,10 +1,14 @@
-<h1>Create Notepad</h1>
+<div id="main-container" class="container-fluid">
+  <div class="row">
+    <div id="content" class="col-xs-12">
+      <h1>Create Notepad</h1>
 
-<div>
-  <%= form_for @notepad do |f| %>
-    <%= f.text_field :title %>
-    <%= f.submit "Create" %>
-  <% end %>
+        <%= form_for @notepad do |f| %>
+          <%= f.text_field :title %>
+          <%= f.submit "Create" %>
+        <% end %>
+
+      <%= link_to "Return", notepads_path(@notepad), :class => 'btb btn-default' %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "Return", notepads_path(@notepad), :class => 'btb btn-default' %>
