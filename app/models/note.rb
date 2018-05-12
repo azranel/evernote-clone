@@ -8,4 +8,5 @@ class Note < ApplicationRecord
   validates :text, presence: true
 
   mount_uploaders :pictures, PictureUploader
+
 end

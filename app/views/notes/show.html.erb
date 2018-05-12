@@ -1,23 +1,33 @@
-<%= @note.title %>
-<%= @note.text %>
 
-<div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <hr>
+      <h1 class="page-header"><%= @note.title %>
+      </h1>
+    </div>
+  </div>
 
-  <%= link_to "Edit", edit_note_path(@note), :class => 'btb btn-default' %>
-
-  <%= link_to "Delete", note_path(@note),
-                        method: :delete,
-                        data: {confirm: 'Are you sure?'},
-                        :class => 'btb btn-danger' %>
-
-  <%= link_to "Return", notes_path(@note), :class => 'btb btn-default' %>
-
-  <%= link_to "All notes in this Notepad", @note.notepad, :class => 'btb btn-default'%>
+  <p><%= raw(@note.text) %></p>
 
   <% @note.pictures.each do |p| %>
-    <ul>
-      <li><%= image_tag p.url %> </li>
-    </ul>
+  <ul>
+    <li><%= image_tag p.url %> </li>
+  </ul>
   <% end %>
 
+  <div>
+
+    <%= link_to "Edit", edit_note_path(@note), :class => 'btn btn-primary' %>
+
+    <%= link_to "All notes in this Notepad", @note.notepad, :class => 'btn btn-primary'%>
+
+    <%= link_to "Back", notes_path(@note), :class => 'btn btn-primary' %>
+
+    <%= link_to "Delete", note_path(@note),
+    method: :delete,
+    data: {confirm: 'Are you sure?'},
+    :class => 'btn btn-danger' %>
+
+  </div>
 </div>

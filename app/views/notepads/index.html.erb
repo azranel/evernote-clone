@@ -1,9 +1,17 @@
-<h1>My Notepads</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <hr>
+      <h1 class="page-header">My Notepads
+      </h1>
+    </div>
+  </div>
 
-<h2><%= link_to "Create new notepad", new_notepad_path, :class => 'btb btn-default' %></h2>
+  <h2><%= link_to "Create new notepad", new_notepad_path, :class => 'btn btn-primary' %></h2>
 
-<div>
-  <% @notepad.each do |notepad| %>
+  <div>
+    <% @notepad.each do |notepad| %>
     <h2><%= link_to notepad.title, notepad_path(notepad) %></h2>
-  <% end %>
+    <% end %>
+  </div>
 </div>
