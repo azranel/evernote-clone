@@ -2,7 +2,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   include CarrierWave::RMagick
 
-  process resize_to_fill: [75, 75]
+  process resize_to_fill: [25, 25]
   process convert: 'jpg'
 
   def filename

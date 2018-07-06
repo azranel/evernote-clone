@@ -2,7 +2,7 @@ class NotesController < ApplicationController
 
   def index
     @q = Note.ransack(params[:q])
-    @notes = @q.result(distinct: true)
+    @notes = @q.result(distinct: true).page(params[:page]).per(9)
   end
 
   def new
@@ -13,10 +13,12 @@ class NotesController < ApplicationController
     @note = Note.new(note_params)
     @notepad = params[:note][:notepad_id]
     if @note.save
-      redirect_to notepad_path(@notepad)
+      redirect_to note_path(@note)
     else
-      redirect_to new_note_path
-      flash[:error] = @note.errors.full_messages
+      @note.errors.full_messages.each_with_index do |e, index|
+        flash[index]=e
+      end
+      render 'new'
     end
   end
 
@@ -42,6 +44,7 @@ class NotesController < ApplicationController
     @note.destroy
 
     redirect_to notes_path
+    flash[:error] = "The Note was successfully deleted"
   end
 
   private

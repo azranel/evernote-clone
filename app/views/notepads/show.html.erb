@@ -1,21 +1,30 @@
-<%= @notepad.title %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <hr>
+      <h1 class="page-header"><%= @notepad.title %>
+      </h1>
+    </div>
+  </div>
 
-<div>
-  <% @notes.each do |note| %>
-    <h2><%= link_to note.title, note_path(note) %></h2>
-    <p><%= note.text %></p>
-  <% end %>
-</div>
+  <div>
+    <%= link_to "Edit", edit_notepad_path(@notepad), :class => 'btn btn-primary' %>
 
-<div>
+    <%= link_to "Back", notepads_path(@notepad), :class => 'btn btn-primary' %>
 
-  <%= link_to "Edit", edit_notepad_path(@notepad), :class => 'btb btn-default' %>
+    <%= link_to "Delete", notepad_path(@notepad),
+    method: :delete,
+    data: {confirm: 'Are you sure?'},
+    :class => 'btn btn-danger' %>
 
-  <%= link_to "Delete", notepad_path(@notepad),
-                        method: :delete,
-                        data: {confirm: 'Are you sure?'},
-                        :class => 'btb btn-danger' %>
+  </div>
 
-  <%= link_to "Return", notepads_path(@notepad), :class => 'btb btn-default' %>
-
+  <div class="row">
+    <% @notes.each do |note| %>
+    <div class="col-md-4 portfolio-item">
+      <h2><%= link_to note.title, note_path(note) %></h2>
+      <%= raw note.text[0..200] %>
+    </div>
+    <% end %>
+  </div>
 </div>

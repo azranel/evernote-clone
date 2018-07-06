@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "notes#index"
   mount Ckeditor::Engine => '/ckeditor'
   resources :notes, :notepads
   devise_for :users
