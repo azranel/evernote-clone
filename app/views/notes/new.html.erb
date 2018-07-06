@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-12">
       <hr>
-      <h1 class="page-header">Create New Note
+      <h1 class="page-header"> Create New Note
       </h1>
     </div>
   </div>
@@ -14,7 +14,9 @@
   <div>
     <%= form_for @note do |f| %>
     <h4>Title</h4>
+    <label for="note_title">
     <%= f.text_field :title, :class => "form-control", :placeholder => "Title"%>
+    </label>
     <hr>
     <div class="dropdown">
       <h4>Please choose Notepad</h4>

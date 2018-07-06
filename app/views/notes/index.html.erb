@@ -7,6 +7,10 @@
     </div>
   </div>
 
+  <% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: key %>
+  <% end %>
+
   <h2><%= link_to "Create new note", new_note_path, :class => 'btn btn-primary' %></h2>
   <br>
   <div class="well">

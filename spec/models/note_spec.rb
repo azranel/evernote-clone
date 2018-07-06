@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Note, type: :model do
-
   let!(:wrong_title) { "Some note aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" }
   let!(:title) { "Some note" }
   let!(:note_content) { "test123" }

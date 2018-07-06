@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'capybara'
 gem 'rails_12factor'
 gem 'kaminari'
 gem 'bootstrap-sass', '~> 3.2.0'
@@ -55,6 +56,7 @@ end
 group :test do
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 group :development do

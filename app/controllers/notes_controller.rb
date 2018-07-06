@@ -13,7 +13,7 @@ class NotesController < ApplicationController
     @note = Note.new(note_params)
     @notepad = params[:note][:notepad_id]
     if @note.save
-      redirect_to notepad_path(@notepad)
+      redirect_to note_path(@note)
     else
       @note.errors.full_messages.each_with_index do |e, index|
         flash[index]=e
@@ -44,6 +44,7 @@ class NotesController < ApplicationController
     @note.destroy
 
     redirect_to notes_path
+    flash[:error] = "The Note was successfully deleted"
   end
 
   private
