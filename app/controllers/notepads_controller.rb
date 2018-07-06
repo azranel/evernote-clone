@@ -45,6 +45,5 @@ class NotepadsController < ApplicationController
       @notepad.destroy
 
       redirect_to notepads_path
-      flash[:error] = "The Notepad was successfully deleted"
     end
 end

@@ -5,11 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'capybara'
-gem 'rails_12factor'
-gem 'kaminari'
-gem 'bootstrap-sass', '~> 3.2.0'
-gem 'autoprefixer-rails'
 gem 'paperclip'
 gem 'ckeditor', :git => "https://github.com/galetahub/ckeditor.git"
 gem 'rmagick', '~>2.13.2'
@@ -29,6 +24,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+gem 'rspec-rails'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -47,16 +43,6 @@ gem 'devise'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
-
-group :development, :test do
-  gem 'rspec-rails'
-end
-
-group :test do
-  gem 'capybara'
-  gem 'launchy'
-  gem 'database_cleaner'
 end
 
 group :development do

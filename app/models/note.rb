@@ -3,10 +3,9 @@ class Note < ApplicationRecord
 
   validates :notepad, presence: true
   validates :title, presence: true,
-            length: { maximum: 20},
+            length: { maximum: 50},
             uniqueness: true
   validates :text, presence: true
 
   mount_uploaders :pictures, PictureUploader
-
 end
